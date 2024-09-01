@@ -3,7 +3,6 @@ import 'package:flutter_svg/svg.dart';
 import 'package:posmobile/screens/signup_screen.dart';
 
 import '../widgets/custom_button.dart';
-import '../widgets/custom_input.dart';
 import 'login_screen.dart';
 
 class Welcome extends StatelessWidget {
