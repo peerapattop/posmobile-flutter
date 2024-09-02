@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:posmobile/screens/forgetpassword_screen.dart';
+import 'package:posmobile/screens/home_screen.dart';
 import 'package:posmobile/screens/signup_screen.dart';
 
 import '../widgets/custom_button.dart';
@@ -70,9 +72,42 @@ class Login extends StatelessWidget {
                         right: 40, left: 40, top: 25, bottom: 10),
                     child: CustomButton(
                       text: 'LOGIN',
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const Home(),
+                          ),
+                        );
+                      },
                     ),
                   ),
+                  Padding(
+                    padding: const EdgeInsets.only(right: 50),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const ForgetPassword(),
+                              ),
+                            );
+                          },
+                          child: const Text(
+                            'ลืมรหัสผ่าน',
+                            style: TextStyle(
+                              color: Colors.deepPurple,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                  const SizedBox(height: 20),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
