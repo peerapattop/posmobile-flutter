@@ -11,11 +11,10 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     TextEditingController searchController = TextEditingController();
-    int? selectedIndex;
 
     return Scaffold(
       appBar: AppBar(
-        toolbarHeight: 120,
+        toolbarHeight: 140,
         automaticallyImplyLeading: false,
         backgroundColor: Colors.deepPurple,
         title: const Row(
@@ -158,36 +157,29 @@ class _HomeState extends State<Home> {
                     child: Card(
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(8.0),
-                      ),
-                      color: Colors.white,
-                      margin: const EdgeInsets.only(top: 20, left: 5),
-                      child: const Padding(
-                        padding: EdgeInsets.all(22.0),
-                        child: Column(
-                          mainAxisSize: MainAxisSize.min,
-                          children: <Widget>[
-                            Text('ALL'),
-                          ],
+                        side: const BorderSide(
+                          color: Colors.deepPurple,
+                          width: 0.9,
                         ),
                       ),
-                    ),
-                  ),
-                  SizedBox(width: 10),
-                  SizedBox(
-                    width: 120,
-                    height: 140,
-                    child: Card(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(8.0),
-                      ),
                       color: Colors.white,
                       margin: const EdgeInsets.only(top: 20, left: 5),
-                      child: const Padding(
-                        padding: EdgeInsets.all(22.0),
+                      child: Padding(
+                        padding: const EdgeInsets.all(22.0),
                         child: Column(
                           mainAxisSize: MainAxisSize.min,
                           children: <Widget>[
-                            Text('ALL'),
+                            Image.asset(
+                              "assets/icons/add.png",
+                              color: Colors.deepPurple,
+                              scale: 13,
+                            ),
+                            const SizedBox(height: 10),
+                            const Text(
+                              'Add',
+                              style:
+                              TextStyle(color: Colors.deepPurple, fontSize: 18),
+                            ),
                           ],
                         ),
                       ),
@@ -196,6 +188,11 @@ class _HomeState extends State<Home> {
                 ],
               ),
             ),
+            const Padding(
+              padding: EdgeInsets.all(10.0),
+              child: Divider(),
+            ),
+
           ],
         ),
       ),
