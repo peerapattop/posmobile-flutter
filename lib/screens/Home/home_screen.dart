@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:posmobile/screens/login_screen.dart';
 
 import '../../widgets/custom_alert.dart';
 import '../../widgets/custom_appbar.dart';
@@ -22,11 +23,20 @@ class _HomeState extends State<Home> {
         backgroundColor: Colors.deepPurple,
         toolbarHeight: 140,
         onIconPressed: () {
-          CustomAlert(
-            title: "ฟหก",
-            content: "asd",
-            onCancel: () {},
-            onConfirm: () {},
+          showDialog(
+            context: context,
+            builder: (BuildContext context) {
+              return CustomAlert(
+                title: 'Confirm Action',
+                content: 'คุณต้องการออกจากระบบหรือไม่?',
+                onConfirm: () {
+                  Navigator.of(context).pop();
+                },
+                onCancel: () {
+                  Navigator.of(context).pop();
+                },
+              );
+            },
           );
         },
       ),

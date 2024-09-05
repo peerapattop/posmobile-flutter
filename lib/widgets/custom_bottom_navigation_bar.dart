@@ -32,8 +32,8 @@ class CustomBottomNavigationBar extends StatelessWidget {
           label: "Report",
         ),
         NavigationDestination(
-          icon: Icon(Iconsax.user, color: currentIndex == 3 ? Colors.purple : Colors.grey),
-          label: "Profile",
+          icon: Icon(Iconsax.setting, color: currentIndex == 3 ? Colors.purple : Colors.grey),
+          label: "Setting",
         ),
       ],
     );

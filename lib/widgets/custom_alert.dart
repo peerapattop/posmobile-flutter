@@ -22,11 +22,11 @@ class CustomAlert extends StatelessWidget {
       actions: [
         TextButton(
           onPressed: onCancel,
-          child: const Text('Cancel'),
+          child: const Text('ยกเลิก'),
         ),
         ElevatedButton(
           onPressed: onConfirm,
-          child: const Text('Confirm'),
+          child: const Text('ยืนยัน'),
         ),
       ],
     );
