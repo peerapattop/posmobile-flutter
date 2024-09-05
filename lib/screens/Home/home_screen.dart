@@ -11,7 +11,7 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     TextEditingController searchController = TextEditingController();
-    String? imageUrl;
+    int? selectedIndex;
 
     return Scaffold(
       appBar: AppBar(
@@ -19,7 +19,7 @@ class _HomeState extends State<Home> {
         automaticallyImplyLeading: false,
         backgroundColor: Colors.deepPurple,
         title: const Row(
-          mainAxisAlignment: MainAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
               "สวัสดี คุณพีรพัฒน์ !",
@@ -28,6 +28,11 @@ class _HomeState extends State<Home> {
                 fontWeight: FontWeight.bold,
                 color: Colors.white,
               ),
+            ),
+            Icon(
+                Icons.logout,
+                color: Colors.white,
+              size: 28,
             ),
           ],
         ),
@@ -47,11 +52,153 @@ class _HomeState extends State<Home> {
                 ),
               ),
             ),
-            //รายการอาหาร
-            
-          ]
+            //รายการชนิด
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SizedBox(
+                    width: 120,
+                    height: 140,
+                    child: Card(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8.0),
+                      ),
+                      color: Colors.deepPurple,
+                      margin: const EdgeInsets.only(top: 20, left: 5),
+                      child: Padding(
+                        padding: const EdgeInsets.all(22.0),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: <Widget>[
+                            const SizedBox(height: 7),
+                            Image.asset(
+                              "assets/icons/grid.png",
+                              color: Colors.white,
+                              scale: 19,
+                            ),
+                            const SizedBox(height: 16),
+                            const Text(
+                              'ALL',
+                              style:
+                                  TextStyle(color: Colors.white, fontSize: 18),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(width: 10),
+                  SizedBox(
+                    width: 120,
+                    height: 140,
+                    child: Card(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8.0),
+                      ),
+                      color: Colors.white,
+                      margin: const EdgeInsets.only(top: 20, left: 5),
+                      child: Padding(
+                        padding: const EdgeInsets.all(22.0),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: <Widget>[
+                            Image.asset(
+                              "assets/icons/rice.png",
+                              color: Colors.deepPurple,
+                              scale: 13,
+                            ),
+                            const SizedBox(height: 10),
+                            const Text(
+                              'Rice',
+                              style:
+                              TextStyle(color: Colors.deepPurple, fontSize: 18),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(width: 10),
+                  SizedBox(
+                    width: 120,
+                    height: 140,
+                    child: Card(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8.0),
+                      ),
+                      color: Colors.white,
+                      margin: const EdgeInsets.only(top: 20, left: 5),
+                      child:  Padding(
+                        padding: const EdgeInsets.all(22.0),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: <Widget>[
+                            Image.asset(
+                              "assets/icons/soda.png",
+                              color: Colors.deepPurple,
+                              scale: 13,
+                            ),
+                            const SizedBox(height: 10),
+                            const Text(
+                              'Water',
+                              style:
+                              TextStyle(color: Colors.deepPurple, fontSize: 18),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(width: 10),
+                  SizedBox(
+                    width: 120,
+                    height: 140,
+                    child: Card(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8.0),
+                      ),
+                      color: Colors.white,
+                      margin: const EdgeInsets.only(top: 20, left: 5),
+                      child: const Padding(
+                        padding: EdgeInsets.all(22.0),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: <Widget>[
+                            Text('ALL'),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                  SizedBox(width: 10),
+                  SizedBox(
+                    width: 120,
+                    height: 140,
+                    child: Card(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8.0),
+                      ),
+                      color: Colors.white,
+                      margin: const EdgeInsets.only(top: 20, left: 5),
+                      child: const Padding(
+                        padding: EdgeInsets.all(22.0),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: <Widget>[
+                            Text('ALL'),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
         ),
-      )
+      ),
     );
   }
 }
