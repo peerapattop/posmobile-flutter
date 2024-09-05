@@ -1,19 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:posmobile/screens/Profile/profile_screen.dart';
 import '../widgets/custom_bottom_navigation_bar.dart';
+import 'Home/home_screen.dart';
 
-class Home extends StatefulWidget {
-  const Home({super.key});
+class Menu extends StatefulWidget {
+  const Menu({super.key});
 
   @override
-  State<Home> createState() => _HomeState();
+  State<Menu> createState() => _HomeState();
 }
 
-class _HomeState extends State<Home> {
+class _HomeState extends State<Menu> {
   int _selectedIndex = 0;
 
   static const List<Widget> _widgetOptions = <Widget>[
-    Text('Home'),
+    Home(),
     Text('Cart'),
     Text('Report'),
     Profile()
