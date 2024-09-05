@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:posmobile/screens/Profile/profile_screen.dart';
 import '../widgets/custom_bottom_navigation_bar.dart';
+import 'Cart/cart_screen.dart';
 import 'Home/home_screen.dart';
 
 class Menu extends StatefulWidget {
@@ -15,7 +16,7 @@ class _HomeState extends State<Menu> {
 
   static const List<Widget> _widgetOptions = <Widget>[
     Home(),
-    Text('Cart'),
+    Cart(),
     Text('Report'),
     Profile()
   ];

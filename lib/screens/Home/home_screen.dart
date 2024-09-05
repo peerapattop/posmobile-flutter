@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+import '../../widgets/custom_alert.dart';
+import '../../widgets/custom_appbar.dart';
+
 class Home extends StatefulWidget {
   const Home({super.key});
 
@@ -13,28 +16,19 @@ class _HomeState extends State<Home> {
     TextEditingController searchController = TextEditingController();
 
     return Scaffold(
-      appBar: AppBar(
-        toolbarHeight: 140,
-        automaticallyImplyLeading: false,
+      appBar: CustomAppbar(
+        title: "สวัสดี คุณพีรพัฒน์ !",
+        icon: Icons.logout,
         backgroundColor: Colors.deepPurple,
-        title: const Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text(
-              "สวัสดี คุณพีรพัฒน์ !",
-              style: TextStyle(
-                fontSize: 27,
-                fontWeight: FontWeight.bold,
-                color: Colors.white,
-              ),
-            ),
-            Icon(
-                Icons.logout,
-                color: Colors.white,
-              size: 28,
-            ),
-          ],
-        ),
+        toolbarHeight: 140,
+        onIconPressed: () {
+          CustomAlert(
+            title: "ฟหก",
+            content: "asd",
+            onCancel: () {},
+            onConfirm: () {},
+          );
+        },
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
