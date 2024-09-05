@@ -62,7 +62,7 @@ class _HomeState extends State<Home> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   SizedBox(
-                    width: 120,
+                    width: 100,
                     height: 140,
                     child: Card(
                       shape: RoundedRectangleBorder(
@@ -94,7 +94,7 @@ class _HomeState extends State<Home> {
                   ),
                   const SizedBox(width: 10),
                   SizedBox(
-                    width: 120,
+                    width: 100,
                     height: 140,
                     child: Card(
                       shape: RoundedRectangleBorder(
@@ -125,7 +125,7 @@ class _HomeState extends State<Home> {
                   ),
                   const SizedBox(width: 10),
                   SizedBox(
-                    width: 120,
+                    width: 100,
                     height: 140,
                     child: Card(
                       shape: RoundedRectangleBorder(
@@ -156,7 +156,7 @@ class _HomeState extends State<Home> {
                   ),
                   const SizedBox(width: 10),
                   SizedBox(
-                    width: 120,
+                    width: 100,
                     height: 140,
                     child: Card(
                       shape: RoundedRectangleBorder(
@@ -193,7 +193,7 @@ class _HomeState extends State<Home> {
               ),
             ),
             const Padding(
-              padding: EdgeInsets.all(10.0),
+              padding: EdgeInsets.only(top: 12),
               child: Divider(),
             ),
             Expanded(
