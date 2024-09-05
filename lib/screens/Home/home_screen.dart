@@ -105,8 +105,8 @@ class _HomeState extends State<Home> {
                             const SizedBox(height: 10),
                             const Text(
                               'Rice',
-                              style:
-                              TextStyle(color: Colors.deepPurple, fontSize: 18),
+                              style: TextStyle(
+                                  color: Colors.deepPurple, fontSize: 18),
                             ),
                           ],
                         ),
@@ -123,7 +123,7 @@ class _HomeState extends State<Home> {
                       ),
                       color: Colors.white,
                       margin: const EdgeInsets.only(top: 20, left: 5),
-                      child:  Padding(
+                      child: Padding(
                         padding: const EdgeInsets.all(22.0),
                         child: Column(
                           mainAxisSize: MainAxisSize.min,
@@ -136,8 +136,8 @@ class _HomeState extends State<Home> {
                             const SizedBox(height: 10),
                             const Text(
                               'Water',
-                              style:
-                              TextStyle(color: Colors.deepPurple, fontSize: 18),
+                              style: TextStyle(
+                                  color: Colors.deepPurple, fontSize: 18),
                             ),
                           ],
                         ),
@@ -171,8 +171,8 @@ class _HomeState extends State<Home> {
                             const SizedBox(height: 10),
                             const Text(
                               'Add',
-                              style:
-                              TextStyle(color: Colors.deepPurple, fontSize: 18),
+                              style: TextStyle(
+                                  color: Colors.deepPurple, fontSize: 18),
                             ),
                           ],
                         ),
@@ -186,7 +186,73 @@ class _HomeState extends State<Home> {
               padding: EdgeInsets.all(10.0),
               child: Divider(),
             ),
-
+            Expanded(
+              child: GridView.builder(
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  crossAxisSpacing: 10,
+                  mainAxisSpacing: 10,
+                  childAspectRatio: 0.7,
+                ),
+                itemCount: 6,
+                itemBuilder: (context, index) {
+                  return Card(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8.0),
+                    ),
+                    color: Colors.white,
+                    margin: const EdgeInsets.only(top: 20, left: 5),
+                    child: Padding(
+                      padding: const EdgeInsets.all(22.0),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: <Widget>[
+                          const SizedBox(height: 10),
+                          Image.asset("assets/images/kapao.jpg", scale: 7),
+                          const Text(
+                            "กระเพรา",
+                            style: TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.deepPurple),
+                          ),
+                          const SizedBox(height: 10),
+                          const Divider(),
+                          const SizedBox(height: 5),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              const Text(
+                                '60 บาท',
+                                style: TextStyle(
+                                  fontSize: 23,
+                                  color: Colors.deepPurple,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              Container(
+                                padding: const EdgeInsets.all(10.0),
+                                decoration: const BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  color: Colors.deepPurple,
+                                ),
+                                child: const Center(
+                                  child: Icon(
+                                    Icons.add,
+                                    color: Colors.white,
+                                    size: 22.0,
+                                  ),
+                                ),
+                              )
+                            ],
+                          )
+                        ],
+                      ),
+                    ),
+                  );
+                },
+              ),
+            ),
           ],
         ),
       ),
