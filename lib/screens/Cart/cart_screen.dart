@@ -13,9 +13,10 @@ class _CartState extends State<Cart> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const CustomAppbar(
-        title: "Cart",
+        title: "รถเข็น",
         backgroundColor: Colors.deepPurple,
-        toolbarHeight: 100,
+        toolbarHeight: 70,
+        centerTitle: true,
       ),
       body: Column(
         children: [
@@ -58,7 +59,7 @@ class _CartState extends State<Cart> {
                         ],
                       ),
                       const SizedBox(width: 16),
-                      Column(
+                      const Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
@@ -83,8 +84,9 @@ class _CartState extends State<Cart> {
                       Column(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Row(
+                          const Row(
                             children: [
+                              SizedBox(width: 70),
                               Icon(Icons.delete,color: Colors.red),
                             ],
                           ),

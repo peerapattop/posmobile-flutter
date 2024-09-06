@@ -6,7 +6,8 @@ class CustomAppbar extends StatelessWidget implements PreferredSizeWidget {
   final Color backgroundColor;
   final double toolbarHeight;
   final VoidCallback? onIconPressed;
-  final MainAxisAlignment mainAxisAlignment;
+  final MainAxisAlignment? mainAxisAlignment;
+  final bool? centerTitle;
 
   const CustomAppbar({
     Key? key,
@@ -15,7 +16,8 @@ class CustomAppbar extends StatelessWidget implements PreferredSizeWidget {
     required this.backgroundColor,
     required this.toolbarHeight,
     this.onIconPressed,
-    this.mainAxisAlignment = MainAxisAlignment.center,
+    this.mainAxisAlignment,
+    this.centerTitle
   }) : super(key: key);
 
   @override
@@ -24,10 +26,11 @@ class CustomAppbar extends StatelessWidget implements PreferredSizeWidget {
       toolbarHeight: toolbarHeight,
       automaticallyImplyLeading: false,
       backgroundColor: backgroundColor,
+      centerTitle: centerTitle,
       title: Padding(
         padding: const EdgeInsets.only(left: 6),
         child: Row(
-          mainAxisAlignment: mainAxisAlignment,
+          mainAxisAlignment: mainAxisAlignment ?? MainAxisAlignment.center,
           children: [
             Text(
               title,
