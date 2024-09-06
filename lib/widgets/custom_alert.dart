@@ -17,16 +17,32 @@ class CustomAlert extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      title: Text(title),
-      content: Text(content),
+      title: Text(
+        title,
+        style: const TextStyle(fontSize: 25),
+      ),
+      content: Text(
+        content,
+        style: const TextStyle(fontSize: 18),
+      ),
       actions: [
         TextButton(
           onPressed: onCancel,
-          child: const Text('ยกเลิก'),
+          child: const Text(
+            'ยกเลิก',
+            style: TextStyle(fontSize: 18),
+          ),
         ),
         ElevatedButton(
           onPressed: onConfirm,
-          child: const Text('ยืนยัน'),
+          style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.deepPurple,
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 24.0, vertical: 12.0)),
+          child: const Text(
+            'ยืนยัน',
+            style: TextStyle(fontSize: 18, color: Colors.white),
+          ),
         ),
       ],
     );

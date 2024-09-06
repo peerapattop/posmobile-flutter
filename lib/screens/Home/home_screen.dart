@@ -18,6 +18,7 @@ class _HomeState extends State<Home> {
 
     return Scaffold(
       appBar: CustomAppbar(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         title: "สวัสดี คุณพีรพัฒน์ !",
         icon: Icons.logout,
         backgroundColor: Colors.deepPurple,
@@ -27,7 +28,7 @@ class _HomeState extends State<Home> {
             context: context,
             builder: (BuildContext context) {
               return CustomAlert(
-                title: 'Confirm Action',
+                title: 'ออกจากระบบ',
                 content: 'คุณต้องการออกจากระบบหรือไม่?',
                 onConfirm: () {
                   Navigator.of(context).pop();
