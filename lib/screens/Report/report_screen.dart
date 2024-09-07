@@ -46,7 +46,7 @@ class _ReportState extends State<Report> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const Text('Pie Chart'),
+                  const Text(''),
                   Container(
                     padding: const EdgeInsets.symmetric(horizontal: 12),
                     decoration: BoxDecoration(
@@ -141,7 +141,7 @@ class _ReportState extends State<Report> {
                       ),
                     ),
                   ),
-                  child: Column(
+                  child: const Column(
                     children: [
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
