@@ -217,7 +217,7 @@ class _CartState extends State<Cart> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => Result(), // เปลี่ยนเป็นหน้าที่คุณต้องการจะนำทางไป
+                    builder: (context) => const Result(),
                   ),
                 );
               },
@@ -238,7 +238,7 @@ class _CartState extends State<Cart> {
                           style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold,color: Colors.white),
                         ),
                         SizedBox(width: 15,),
-                        Icon(Icons.arrow_forward,color: Colors.white,)
+                        Icon(Icons.arrow_forward_ios,color: Colors.white,)
                       ],
                     )
                   ],
