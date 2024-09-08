@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:posmobile/screens/login_screen.dart';
 
 import '../../widgets/custom_alert.dart';
 import '../../widgets/custom_appbar.dart';
