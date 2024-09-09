@@ -1,3 +1,4 @@
+import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -5,6 +6,8 @@ import '../services/api_service.dart';
 import '../services/signup_service.dart';
 import '../widgets/custom_button.dart';
 import '../widgets/custom_input.dart';
+import '../widgets/snack_bar.dart';
+import 'login_screen.dart';
 
 class SignUp extends StatefulWidget {
   const SignUp({super.key});
@@ -41,9 +44,19 @@ class _RegisterState extends State<SignUp> {
     };
 
     try {
-      final result = await _registrationService.register(data);
-      // จัดการผลลัพธ์ที่ได้รับ
-      print('Registration successful: $result');
+      await _registrationService.register(data);
+      CustomSnackBar.show(
+        context,
+        title: 'Successfully!!',
+        message: 'Create Account Successfully!',
+        contentType: ContentType.success,
+      );
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(
+            builder: (context) => const Login()),
+      );
+
       // คุณสามารถแสดงข้อความแจ้งเตือนหรือเปลี่ยนเส้นทางผู้ใช้ที่นี่
     } catch (e) {
       // จัดการข้อผิดพลาด
@@ -92,7 +105,8 @@ class _RegisterState extends State<SignUp> {
                       height: size.height * 0.35),
                   const SizedBox(height: 30),
                   Padding(
-                    padding: const EdgeInsets.only(right: 40, left: 40, bottom: 25),
+                    padding:
+                        const EdgeInsets.only(right: 40, left: 40, bottom: 25),
                     child: CustomInput(
                       controller: _fullNameController,
                       prefixIcon: Icons.person,
@@ -101,7 +115,8 @@ class _RegisterState extends State<SignUp> {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(right: 40, left: 40, bottom: 25),
+                    padding:
+                        const EdgeInsets.only(right: 40, left: 40, bottom: 25),
                     child: CustomInput(
                       controller: _emailController,
                       prefixIcon: Icons.email,
@@ -110,7 +125,8 @@ class _RegisterState extends State<SignUp> {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(right: 40, left: 40,bottom: 25),
+                    padding:
+                        const EdgeInsets.only(right: 40, left: 40, bottom: 25),
                     child: CustomInput(
                       controller: _passwordController,
                       obscureText: true,
@@ -120,7 +136,7 @@ class _RegisterState extends State<SignUp> {
                       keyboardType: TextInputType.visiblePassword,
                     ),
                   ),
-                 Padding(
+                  Padding(
                     padding: const EdgeInsets.only(right: 40, left: 40),
                     child: CustomInput(
                       controller: _passwordController,
@@ -138,12 +154,6 @@ class _RegisterState extends State<SignUp> {
                       text: 'SIGNUP',
                       onPressed: () {
                         _register();
-                        // Navigator.push(
-                        //   context,
-                        //   MaterialPageRoute(
-                        //     builder: (context) => const Login(),
-                        //   ),
-                        // );
                       },
                     ),
                   ),

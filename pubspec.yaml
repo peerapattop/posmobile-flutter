@@ -12,6 +12,7 @@ dependencies:
   flutter_svg: ^2.0.10+1
   iconsax: ^0.0.8
   http: ^1.2.2
+  awesome_snackbar_content: ^0.1.4
 
 dev_dependencies:
   flutter_test:
