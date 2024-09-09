@@ -7,6 +7,7 @@ class CustomInput extends StatelessWidget {
   final TextInputType keyboardType;
   final IconData? prefixIcon;
   final IconData? suffixIcon;
+  final Function(String)? onChanged;
 
   const CustomInput({
     super.key,
@@ -16,6 +17,7 @@ class CustomInput extends StatelessWidget {
     this.keyboardType = TextInputType.text,
     this.prefixIcon,
     this.suffixIcon,
+    this.onChanged,
   });
 
   @override
@@ -30,10 +32,12 @@ class CustomInput extends StatelessWidget {
         controller: controller,
         obscureText: obscureText,
         keyboardType: keyboardType,
+        onChanged: onChanged,
         decoration: InputDecoration(
           hintText: hintText,
           border: InputBorder.none,
-          contentPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+          contentPadding:
+              const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
           prefixIcon: prefixIcon != null
               ? Icon(prefixIcon, color: Colors.deepPurple)
               : null,
