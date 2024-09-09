@@ -61,9 +61,9 @@ class _RegisterState extends State<SignUp> {
       });
       hasError = true;
     }
-    if (_passwordController.text.length < 6) {
+    if (_passwordController.text.length < 8) {
       setState(() {
-        _passwordError = 'Password must be at least 6 characters';
+        _passwordError = 'Password must be at least 8 characters';
       });
       hasError = true;
     }
