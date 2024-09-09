@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:posmobile/screens/login_screen.dart';
 
+import '../services/api_service.dart';
+import '../services/signup_service.dart';
 import '../widgets/custom_button.dart';
 import '../widgets/custom_input.dart';
 
@@ -13,6 +14,43 @@ class SignUp extends StatefulWidget {
 }
 
 class _RegisterState extends State<SignUp> {
+  final _fullNameController = TextEditingController();
+  final _passwordController = TextEditingController();
+  final _emailController = TextEditingController();
+  late SignupService _registrationService;
+  @override
+  void initState() {
+    super.initState();
+    final apiService = ApiService('http://192.168.1.137:3000/api');
+    _registrationService = SignupService(apiService);
+  }
+
+  void _register() async {
+    final fullName = _fullNameController.text.trim();
+    final password = _passwordController.text.trim();
+    final email = _emailController.text.trim();
+
+    if (fullName.isEmpty || password.isEmpty || email.isEmpty) {
+      print('Please fill in all fields.');
+      return;
+    }
+    final data = {
+      'fullName': fullName,
+      'password': password,
+      'email': email,
+    };
+
+    try {
+      final result = await _registrationService.register(data);
+      // จัดการผลลัพธ์ที่ได้รับ
+      print('Registration successful: $result');
+      // คุณสามารถแสดงข้อความแจ้งเตือนหรือเปลี่ยนเส้นทางผู้ใช้ที่นี่
+    } catch (e) {
+      // จัดการข้อผิดพลาด
+      print('Error: $e');
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -53,25 +91,28 @@ class _RegisterState extends State<SignUp> {
                   SvgPicture.asset("assets/icons/signup.svg",
                       height: size.height * 0.35),
                   const SizedBox(height: 30),
-                  const Padding(
-                    padding: EdgeInsets.only(right: 40, left: 40, bottom: 25),
+                  Padding(
+                    padding: const EdgeInsets.only(right: 40, left: 40, bottom: 25),
                     child: CustomInput(
+                      controller: _fullNameController,
                       prefixIcon: Icons.person,
                       hintText: 'FullName',
                       keyboardType: TextInputType.text,
                     ),
                   ),
-                  const Padding(
-                    padding: EdgeInsets.only(right: 40, left: 40, bottom: 25),
+                  Padding(
+                    padding: const EdgeInsets.only(right: 40, left: 40, bottom: 25),
                     child: CustomInput(
+                      controller: _emailController,
                       prefixIcon: Icons.email,
                       hintText: 'Email',
                       keyboardType: TextInputType.emailAddress,
                     ),
                   ),
-                  const Padding(
-                    padding: EdgeInsets.only(right: 40, left: 40,bottom: 25),
+                  Padding(
+                    padding: const EdgeInsets.only(right: 40, left: 40,bottom: 25),
                     child: CustomInput(
+                      controller: _passwordController,
                       obscureText: true,
                       prefixIcon: Icons.lock,
                       suffixIcon: Icons.visibility,
@@ -79,9 +120,10 @@ class _RegisterState extends State<SignUp> {
                       keyboardType: TextInputType.visiblePassword,
                     ),
                   ),
-                  const Padding(
-                    padding: EdgeInsets.only(right: 40, left: 40),
+                 Padding(
+                    padding: const EdgeInsets.only(right: 40, left: 40),
                     child: CustomInput(
+                      controller: _passwordController,
                       obscureText: true,
                       prefixIcon: Icons.lock,
                       suffixIcon: Icons.visibility,
@@ -95,12 +137,13 @@ class _RegisterState extends State<SignUp> {
                     child: CustomButton(
                       text: 'SIGNUP',
                       onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const Login(),
-                          ),
-                        );
+                        _register();
+                        // Navigator.push(
+                        //   context,
+                        //   MaterialPageRoute(
+                        //     builder: (context) => const Login(),
+                        //   ),
+                        // );
                       },
                     ),
                   ),
