@@ -3,6 +3,19 @@ import jwt from "jsonwebtoken";
 import bcrypt from "bcryptjs";
 import validator from "validator";
 
+// get user by id
+const getUserById = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const user = await userModel.findById(id);
+    if (!user) {
+      return res.json({ success: false, message: "User not found" });
+    }
+    res.json({ success: true, user });
+  } catch (error) {
+    res.json({ success: false, message: error.message });
+  }
+};
 // login
 const login = async (req, res) => {
   const { email, password } = req.body;
@@ -80,4 +93,4 @@ const register = async (req, res) => {
   }
 };
 
-export { login, register };
+export { login, register,getUserById };
