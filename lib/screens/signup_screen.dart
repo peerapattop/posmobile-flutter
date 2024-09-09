@@ -111,6 +111,7 @@ class _RegisterState extends State<SignUp> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
+
     return Scaffold(
       body: SingleChildScrollView(
         child: SizedBox(
@@ -135,154 +136,156 @@ class _RegisterState extends State<SignUp> {
                   width: size.width * 0.25,
                 ),
               ),
-              Form(
-                key: _formKey,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    const Text(
-                      'SIGNUP',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: size.width * 0.05),
+                child: Form(
+                  key: _formKey,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const Text(
+                        'SIGNUP',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 24,
+                        ),
                       ),
-                    ),
-                    SvgPicture.asset("assets/icons/signup.svg",
-                        height: size.height * 0.35),
-                    const SizedBox(height: 30),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 40),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          CustomInput(
-                            controller: _fullNameController,
-                            prefixIcon: Icons.person,
-                            hintText: 'Full Name',
-                            keyboardType: TextInputType.text,
-                            onChanged: (value) {
-                              if (value.isNotEmpty &&
-                                  _fullNameError.isNotEmpty) {
-                                setState(() {
-                                  _fullNameError = '';
-                                });
-                              }
-                            },
-                          ),
-                          if (_fullNameError.isNotEmpty)
-                            Padding(
-                              padding: const EdgeInsets.only(left: 10, top: 5),
-                              child: Text(
-                                _fullNameError,
-                                style: const TextStyle(
-                                  color: Colors.red,
-                                  fontSize: 15,
-                                ),
-                              ),
-                            ),
-                          const SizedBox(height: 15), // ระยะห่างระหว่างฟิลด์
-                          CustomInput(
-                            controller: _emailController,
-                            prefixIcon: Icons.email,
-                            hintText: 'Email',
-                            keyboardType: TextInputType.emailAddress,
-                            onChanged: (value) {
-                              if (value.isNotEmpty && _emailError.isNotEmpty) {
-                                setState(() {
-                                  _emailError = '';
-                                });
-                              }
-                            },
-                          ),
-                          if (_emailError.isNotEmpty)
-                            Padding(
-                              padding: const EdgeInsets.only(left: 10, top: 5),
-                              child: Text(
-                                _emailError,
-                                style: const TextStyle(
-                                  color: Colors.red,
-                                  fontSize: 15,
-                                ),
-                              ),
-                            ),
-                          const SizedBox(height: 15), // ระยะห่างระหว่างฟิลด์
-                          CustomInput(
-                            controller: _passwordController,
-                            obscureText: true,
-                            prefixIcon: Icons.lock,
-                            suffixIcon: Icons.visibility,
-                            hintText: 'Password',
-                            keyboardType: TextInputType.visiblePassword,
-                            onChanged: (value) {
-                              if (value.isNotEmpty &&
-                                  _passwordError.isNotEmpty) {
-                                setState(() {
-                                  _passwordError = '';
-                                });
-                              }
-                            },
-                          ),
-                          if (_passwordError.isNotEmpty)
-                            Padding(
-                              padding: const EdgeInsets.only(left: 10, top: 5),
-                              child: Text(
-                                _passwordError,
-                                style: const TextStyle(
-                                  color: Colors.red,
-                                  fontSize: 15,
-                                ),
-                              ),
-                            ),
-                          const SizedBox(height: 15), // ระยะห่างระหว่างฟิลด์
-                          CustomInput(
-                            controller: _confirmPasswordController,
-                            obscureText: true,
-                            prefixIcon: Icons.lock,
-                            suffixIcon: Icons.visibility,
-                            hintText: 'Confirm Password',
-                            keyboardType: TextInputType.visiblePassword,
-                            onChanged: (value) {
-                              // ตรวจสอบว่า password และ confirm password ตรงกันหรือไม่
-                              if (_passwordController.text !=
-                                  _confirmPasswordController.text) {
-                                setState(() {
-                                  _confirmPasswordError =
-                                      'Passwords do not match';
-                                });
-                              } else {
-                                setState(() {
-                                  _confirmPasswordError = '';
-                                });
-                              }
-                            },
-                          ),
-                          if (_confirmPasswordError.isNotEmpty)
-                            Padding(
-                              padding: const EdgeInsets.only(left: 10, top: 5),
-                              child: Text(
-                                _confirmPasswordError,
-                                style: const TextStyle(
-                                  color: Colors.red,
-                                  fontSize: 15,
-                                ),
-                              ),
-                            ),
-                        ],
+                      SvgPicture.asset(
+                        "assets/icons/signup.svg",
+                        height: size.height * 0.35,
                       ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(
-                          right: 40, left: 40, top: 25, bottom: 10),
-                      child: CustomButton(
+                      const SizedBox(height: 30),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 0),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            CustomInput(
+                              controller: _fullNameController,
+                              prefixIcon: Icons.person,
+                              hintText: 'Full Name',
+                              keyboardType: TextInputType.text,
+                              onChanged: (value) {
+                                if (value.isNotEmpty &&
+                                    _fullNameError.isNotEmpty) {
+                                  setState(() {
+                                    _fullNameError = '';
+                                  });
+                                }
+                              },
+                            ),
+                            if (_fullNameError.isNotEmpty)
+                              Padding(
+                                padding: const EdgeInsets.only(left: 10, top: 5),
+                                child: Text(
+                                  _fullNameError,
+                                  style: const TextStyle(
+                                    color: Colors.red,
+                                    fontSize: 15,
+                                  ),
+                                ),
+                              ),
+                            const SizedBox(height: 15), // Spacing between fields
+                            CustomInput(
+                              controller: _emailController,
+                              prefixIcon: Icons.email,
+                              hintText: 'Email',
+                              keyboardType: TextInputType.emailAddress,
+                              onChanged: (value) {
+                                if (value.isNotEmpty && _emailError.isNotEmpty) {
+                                  setState(() {
+                                    _emailError = '';
+                                  });
+                                }
+                              },
+                            ),
+                            if (_emailError.isNotEmpty)
+                              Padding(
+                                padding: const EdgeInsets.only(left: 10, top: 5),
+                                child: Text(
+                                  _emailError,
+                                  style: const TextStyle(
+                                    color: Colors.red,
+                                    fontSize: 15,
+                                  ),
+                                ),
+                              ),
+                            const SizedBox(height: 15), // Spacing between fields
+                            CustomInput(
+                              controller: _passwordController,
+                              obscureText: true,
+                              prefixIcon: Icons.lock,
+                              suffixIcon: Icons.visibility,
+                              hintText: 'Password',
+                              keyboardType: TextInputType.visiblePassword,
+                              onChanged: (value) {
+                                if (value.isNotEmpty &&
+                                    _passwordError.isNotEmpty) {
+                                  setState(() {
+                                    _passwordError = '';
+                                  });
+                                }
+                              },
+                            ),
+                            if (_passwordError.isNotEmpty)
+                              Padding(
+                                padding: const EdgeInsets.only(left: 10, top: 5),
+                                child: Text(
+                                  _passwordError,
+                                  style: const TextStyle(
+                                    color: Colors.red,
+                                    fontSize: 15,
+                                  ),
+                                ),
+                              ),
+                            const SizedBox(height: 15), // Spacing between fields
+                            CustomInput(
+                              controller: _confirmPasswordController,
+                              obscureText: true,
+                              prefixIcon: Icons.lock,
+                              suffixIcon: Icons.visibility,
+                              hintText: 'Confirm Password',
+                              keyboardType: TextInputType.visiblePassword,
+                              onChanged: (value) {
+                                if (_passwordController.text !=
+                                    _confirmPasswordController.text) {
+                                  setState(() {
+                                    _confirmPasswordError =
+                                    'Passwords do not match';
+                                  });
+                                } else {
+                                  setState(() {
+                                    _confirmPasswordError = '';
+                                  });
+                                }
+                              },
+                            ),
+                            if (_confirmPasswordError.isNotEmpty)
+                              Padding(
+                                padding: const EdgeInsets.only(left: 10, top: 5),
+                                child: Text(
+                                  _confirmPasswordError,
+                                  style: const TextStyle(
+                                    color: Colors.red,
+                                    fontSize: 15,
+                                  ),
+                                ),
+                              ),
+                          ],
+                        ),
+                      ),
+                      const SizedBox(height: 20), // Spacing between fields and button
+                      CustomButton(
                         text: 'SIGNUP',
                         onPressed: () {
                           _register();
                         },
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
-              )
+              ),
             ],
           ),
         ),
